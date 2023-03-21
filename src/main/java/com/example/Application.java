@@ -10,10 +10,21 @@ import javax.annotation.PostConstruct;
 @SpringBootApplication
 public class Application {
 
+    Logger log = LoggerFactory.getLogger(Application.class);
+
     public static void main(String[] args)
     {
         SpringApplication.run(Application.class, args);
         // add your code snippet here
+
+        try {
+            String one = args[0];
+            String two = args[1];
+            log.info("Application will start with the parameters {} and {}", one, two);
+        } catch (Exception e) {
+            log.info("No parameters provided");
+        }
+
     }
 
     @PostConstruct
